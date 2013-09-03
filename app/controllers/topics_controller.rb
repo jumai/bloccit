@@ -32,7 +32,7 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.find(params[:id])
-    authorize! :update, @topic, :message "You need to own the topic to update it."
+    authorize! :update, @topic, message: "You need to own the topic to update it."
     if @topic.update_attributes(params[:id])
       redirect_to @topic
     else
